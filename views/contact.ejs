@@ -1,0 +1,33 @@
+
+<h1>Welcome to Contact Page</h1>
+<p>this is contact page</p>
+<p><b>Contact List:</b></p>
+      
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                <% if (cont.length === 0) { %>
+                    <p><i><b>Data is empty</b></i></p>
+                <% }else { %>
+                    <% let count = 1 %>
+                    <% cont.forEach(element=> { %>
+                        <tr>
+                            <th scope="row"><%= count %></th>
+                            <td><%= element.name %></td>
+                            <td><%= element.email %></td>
+                            <td><a href="/contact/<%= element.name %>"><button type="button" class="btn btn-outline-success">detail</button></a></td>
+                        </tr>
+                        <% count++; %> 
+                        <% }) %>
+                <% } %>
+        </tbody>
+        </table>
+</div>
